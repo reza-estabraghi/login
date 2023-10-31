@@ -100,3 +100,18 @@ let _green = document.getElementsByClassName('green')[0]
             }).catch(error => {})
         }
     }
+    let flag = 0
+    function show(e){
+        console.log(e);
+        if(
+            flag == 0
+        ){
+            _pass1.setAttribute('type','text')
+            document.getElementById('btn').innerHTML = '🔒'
+            flag++
+        }else{
+            _pass1.setAttribute('type','password')
+            document.getElementById('btn').innerHTML = '👁‍🗨'
+            flag--
+        }
+    }
