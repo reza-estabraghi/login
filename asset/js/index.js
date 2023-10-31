@@ -91,7 +91,7 @@ let _green = document.getElementsByClassName('green')[0]
                             
                         </h2>
                         `
-                        alert1.style.display='none'
+                        break;
                     }else{
                         alert1.innerHTML='user not found'
                         alert1.style.color = 'red'
