@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="asset/css/index.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="box">
+            <div class="white">
+                <div class="signin">
+                    <h2>Sign in to developer</h2>
+                    <p>or use your email account:</p>
+                    <input type="text" id="user1" placeholder="username">
+                    <input type="password" id="pass1" placeholder="password">
+                    <a href="">"forgot your passowrd?"</a>
+                    <div class="insignin">
+                        <button class="move" onclick="move()">sign in</button>
+                    </div>
+                    <h3 id="alert1"></h3>
+                </div>
+                <div class="signup">
+                    <h2>Create Account</h2>
+                    <p>fill out the form to register:</p>
+                    <input type="email" id="email" placeholder="Email">
+                    <input type="text" id="user2" placeholder="username">
+                    <input type="text" id="pass2" placeholder="password">
+                    <div class="insignup">
+                        <button class="move1" onclick="move1()">sign up</button>
+                    </div>
+                    <h3 id="alert2"></h3>
+                </div>
+            </div>
+            <div class="green">
+                <div class="first">
+                    <h2>Hello, friend</h2>
+                    <p>Enter your personal details
+
+                        and start journey with us</p>
+                    <button id="tosignup">sign up</button>
+                </div>
+                <div class="second">
+                    <h2>Welcome back!</h2>
+                    <p>To keep connected whit us
+
+                        please login with your personal info</p>
+                    <button id="tosignin">sign in</button>
+                </div>
+            </div>
+        </div>
+        <div id="confirm"></div>
+    </main>
+</body>
+<script src="asset/js/index.js"></script>
+</html>
