@@ -49,6 +49,12 @@
   height: 50px;
   padding-left: 10px;
 }
+.white .signin > button {
+  width: 0px;
+  height: 50px;
+  font-size: 25px;
+  border: none;
+}
 .white .signin > div {
   width: 100%;
   height: 20%;
