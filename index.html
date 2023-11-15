@@ -5,54 +5,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="asset/css/index.css">
+    <!-- <link rel="stylesheet" href="asset/css/index.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-    <main id="main">
-        <div class="box">
-            <div class="white">
-                <div class="signin">
-                    <h2>Sign in to developer</h2>
+    <main id="main" class="w-full h-[100vh] flex justify-center items-center flex-wrap font-serif">
+        <div class="box w-[350px] md:w-[700px] h-[600px] md:h-[400px] flex border border-green-700 rounded-[20px] flex-wrap">
+            <div class="white w-full md:w-[60%] h-[60%] md:h-full flex justify-center items-center flex-wrap transition-all 1s md:translate-y-0">
+                <div class="signin w-full h-full flex justify-center items-center flex-wrap transition-all 1s">
+                    <h2 class="text-[30px] text-green-700">Sign in to developer</h2>
                     <p>or use your email account:</p>
-                    <input type="text" id="user1" placeholder="username">
-                    <input type="password" id="pass1" placeholder="password"><button id="btn" onclick="show()">👁‍🗨</button>
-                    <a href="">"forgot your passowrd?"</a>
-                    <div class="insignin">
-                        <button class="move" onclick="move()">sign in</button>
+                    <input type="text" id="user1" placeholder="username" class="w-[80%] h-[50px] pl-[10px] border border-green-600 rounded">
+                    <input type="password" id="pass1" placeholder="password" class="w-[80%] h-[50px] pl-[10px] border border-green-600 rounded"><button id="btn" onclick="show()" class="w-[0px] h-[50px] text-[25px] border-none">👁‍🗨</button>
+                    <a href="#" class="w-full text-center text-black text-[20px]">"forgot your passowrd?"</a>
+                    <div class="insignin w-full h-[20%] flex justify-center items-center">
+                        <button class="move w-[40%] h-[30px] bg-green-700 text-white uppercase text-[20px] rounded-[10px]" onclick="move()">sign in</button>
                     </div>
                     <h3 id="alert1"></h3>
                 </div>
-                <div class="signup">
-                    <h2>Create Account</h2>
-                    <p>fill out the form to register:</p>
-                    <input type="email" id="email" placeholder="Email">
-                    <input type="text" id="user2" placeholder="username">
-                    <input type="text" id="pass2" placeholder="password">
-                    <div class="insignup">
-                        <button class="move1" onclick="move1()">sign up</button>
+                <div class="signup w-full h-full hidden justify-center items-center flex-wrap transition-all 1s">
+                    <h2 class="text-[30px] text-green-700">Create Account</h2>
+                    <p class="w-full text-center">fill out the form to register:</p>
+                    <input type="email" id="email" placeholder="Email" class="w-[80%] h-[50px] pl-[10px]  border border-green-600 rounded" title="[....@...com]">
+                    <input type="text" id="user2" placeholder="username" class="w-[80%] h-[50px] pl-[10px]  border border-green-600 rounded">
+                    <input type="text" id="pass2" placeholder="password" class="w-[80%] h-[50px] pl-[10px]  border border-green-600 rounded" title="[8char][A-Z][a-z][0-9][#?!@$ %^&*-]">
+                    <div class="insignup w-full h-[20%] flex justify-center items-center">
+                        <button class="move1 w-[40%] h-[30px] bg-green-700 text-white text-[20px] uppercase rounded-[10px]" onclick="move1()">sign up</button>
                     </div>
                     <h3 id="alert2"></h3>
                 </div>
             </div>
-            <div class="green">
-                <div class="first">
-                    <h2>Hello, friend</h2>
-                    <p>Enter your personal details
+            <div class="green w-full md:w-[40%] h-[40%] md:h-full bg-green-700 flex pt-10 md:pt-0 justify-center items-start md:items-center flex-wrap rounded-b-[20px] md:rounded-r-[20px] md:rounded-b-none md:translate-y-0 transition-all 1s">
+                <div class="first w-[60%] h-[40%] flex flex-wrap justify-center items-center">
+                    <h2 class="text-white text-[23px] font-bold">Hello, friend</h2>
+                    <p class="text-center text-white">Enter your personal details
 
                         and start journey with us</p>
-                    <button id="tosignup">sign up</button>
+                    <button id="tosignup" class="w-[200px] h-[30px] text-[18px] rounded-[10px] text-white bg-green-600 border border-white cursor-pointer">sign up</button>
                 </div>
-                <div class="second">
-                    <h2>Welcome back!</h2>
-                    <p>To keep connected whit us
+                <div class="second w-[60%] h-[40%] hidden flex-wrap justify-center md:items-center">
+                    <h2 class="text-white text-[21px] font-bold">Welcome back!</h2>
+                    <p class="text-center text-white">To keep connected whit us
 
                         please login with your personal info</p>
-                    <button id="tosignin">sign in</button>
+                    <button id="tosignin" class="w-[200px] h-[30px] text-[18px] rounded-[10px] text-white bg-green-600 border border-white cursor-pointer">sign in</button>
                 </div>
             </div>
         </div>
-        <div id="confirm"></div>
+        <div id="confirm" class="w-[200px] md:w-[700px] h-[100px] md:h-[150px] hidden justify-center items-center bg-green-700 fixed top-0 rounded-[10px]"></div>
     </main>
 </body>
 <script src="asset/js/index.js"></script>
