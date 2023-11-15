@@ -11,30 +11,68 @@ let _green = document.getElementsByClassName('green')[0]
     let _user2 = document.getElementById('user2')
     let alert1 = document.getElementById('alert1')
     let alert2 = document.getElementById('alert2')
+    const x = window.matchMedia('(max-width:768px)')
     document.getElementById('tosignup').addEventListener('click', (e) => {
-        _green.style.borderRadius = `20px 0 0 20px`
-        _green.style.transform = `translateX(-420px)`
-        _white.style.transform = `translateX(280px)`
-        _signin.style.display = 'none'
-        _signup.style.display = 'flex'
-        _first.style.display = 'none'
-        _second.style.display = 'flex'
+        if(x.matches){
+            _green.classList.add('rounded-t-[20px]','translate-y-[-360px]')
+            _green.classList.remove('rounded-b-[20px]')
+            _white.classList.add('translate-y-[250px]')
+            _signin.classList.add('hidden')
+            _signin.classList.remove('flex')
+            _signup.classList.add('flex')
+            _signup.classList.remove('hidden')
+            _first.classList.add('hidden')
+            _first.classList.remove('flex')
+            _second.classList.add('flex')
+            _second.classList.remove('hidden')
+        }else{
+            _green.classList.remove('translate-y-[-360px]','md:rounded-r-[20px]')
+            _green.classList.add('md:rounded-l-[20px]','md:translate-x-[-420px]')
+            _white.classList.add('md:translate-x-[280px]')
+            _white.classList.remove('translate-y-[250px]')
+            _signin.classList.add('hidden')
+            _signin.classList.remove('flex')
+            _signup.classList.add('flex')
+            _signup.classList.remove('hidden')
+            _first.classList.add('hidden')
+            _first.classList.remove('flex')
+            _second.classList.add('flex')
+            _second.classList.remove('hidden')
+        }
     })
     document.getElementById('tosignin').addEventListener('click', (e) => {
-        _green.style.borderRadius = `0 20px 20px 0`
-        _green.style.transform = `translateX(0px)`
-        _white.style.transform = `translateX(0px)`
-        _signin.style.display = 'flex'
-        _signup.style.display = 'none'
-        _first.style.display = 'flex'
-        _second.style.display = 'none'
+        if(x.matches){
+            _green.classList.remove('rounded-t-[20px]','translate-y-[-360px]')
+            _green.classList.add('rounded-b-[20px]')
+            _white.classList.remove('translate-y-[250px]')
+            _signin.classList.remove('hidden')
+            _signin.classList.add('flex')
+            _signup.classList.remove('flex')
+            _signup.classList.add('hidden')
+            _first.classList.remove('hidden')
+            _first.classList.add('flex')
+            _second.classList.remove('flex')
+            _second.classList.add('hidden')
+        }else{
+            _green.classList.add('md:rounded-r-[20px]')
+            _green.classList.remove('md:rounded-l-[20px]','md:translate-x-[-420px]','translate-y-[-360px]')
+            _white.classList.remove('md:translate-x-[280px]','translate-y-[250px]')
+            _signin.classList.remove('hidden')
+            _signin.classList.add('flex')
+            _signup.classList.remove('flex')
+            _signup.classList.add('hidden')
+            _first.classList.remove('hidden')
+            _first.classList.add('flex')
+            _second.classList.remove('flex')
+            _second.classList.add('hidden')
+        }
+
     })
     let pass = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/
-    let user = /^[a-z0-9_-]{3,15}$/
     let email = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
     function move1() {
         alert2.innerHTML = ''
-        if ((pass.test(_pass2.value) == '') || (email.test(_email.value) == '') || user.test(_user2.value)) {
+        if ((pass.test(_pass2.value) == '') || (email.test(_email.value) == '')) {
             alert2.innerHTML = `Password must be at least 8 characters long and contain a mix of uppercase letters, lower or email must be right`
             alert2.style.color = 'red'
         } else {
@@ -64,8 +102,9 @@ let _green = document.getElementsByClassName('green')[0]
     }
     function move() {
         alert1.innerHTML = ''
-        document.getElementById('confirm').style.display ='none'
-        if ((pass.test(_pass1.value) == '') && (user.test(_user1.value) == '')) {
+        document.getElementById('confirm').classList.add('hidden')
+        document.getElementById('confirm').classList.remove('flex')
+        if ((pass.test(_pass1.value) == '')) {
             alert1.innerHTML = 'the user and password is not correct'
             alert1.style.color = 'red'
         } else {
@@ -78,24 +117,24 @@ let _green = document.getElementsByClassName('green')[0]
                 }
             }).then(tasks => {
 
-
-                for(i=0 ; i <= tasks.length;i++){
+                for(i=0 ; i < tasks.length;i++){
                     if((tasks[i].username == user1.value) && (tasks[i].password == pass1.value) ){
-
-                        document.getElementById('confirm').style.display='flex'
+                        document.getElementById('confirm').classList.add('flex')
+                        document.getElementById('confirm').classList.remove('hidden')
                         document.getElementById('confirm').innerHTML =`
-                        <h2>
+                        <h2 class="md:text-[30px] text-white">
                             Id :   ${tasks[i].id} <br>
                             Username : ${tasks[i].username} <br>
                             Email :${tasks[i].email} <br>   
                             
                         </h2>
                         `
-                        break;
+                        alert1.innerHTML=''
                     }else{
                         alert1.innerHTML='user not found'
                         alert1.style.color = 'red'
                     }
+                    
                 }
             }).catch(error => {})
         }
